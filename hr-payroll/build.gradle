@@ -20,18 +20,20 @@ repositories {
 
 ext {
     set('springCloudVersion', "Hoxton.SR1")
+    set('springVersion','2.2.6.RELEASE')
 }
 
 dependencies {
-    def springVersion = '2.2.6.RELEASE'
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'
     compileOnly 'org.projectlombok:lombok'
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
     annotationProcessor 'org.projectlombok:lombok'
-    implementation 'org.springframework.cloud:spring-cloud-starter-openfeign:' + springVersion
-    implementation 'org.springframework.cloud:spring-cloud-starter-netflix-ribbon:' + springVersion
+    implementation "org.springframework.cloud:spring-cloud-starter-openfeign:${springVersion}"
+    implementation "org.springframework.cloud:spring-cloud-starter-netflix-ribbon:${springVersion}"
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    implementation 'org.springframework.cloud:spring-cloud-starter-hystrix:1.4.7.RELEASE'
+
 }
 
 dependencyManagement {
