@@ -1,6 +1,9 @@
 #server:
 #  port: 8002
-
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
 spring:
   application:
     name: hr-worker
@@ -15,3 +18,9 @@ spring:
     path: /h2-console
   jpa:
       defer-datasource-initialization: true
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 60000
+        readTimeout: 10000
